@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Urban Pro Realty | Verified Lagos Properties</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <header class="bg-black text-white shadow-md sticky top-0 z-50 border-b border-neutral-800">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <img src="assets/logo.svg" alt="Urban Pro Realty Logo" class="h-14 w-auto object-contain" />
+        <div class="hidden sm:block border-l border-neutral-800 pl-3">
+          <span class="block text-sm font-bold tracking-wider uppercase text-white">Urban Pro Realty</span>
+          <span class="block text-[11px] text-red-500 font-semibold">RC: 1819695 • Lagos, Nigeria</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex space-x-7 text-sm font-medium text-neutral-300">
+        <a href="#properties" class="hover:text-red-500 transition">Properties</a>
+        <a href="#about" class="hover:text-red-500 transition">About Us</a>
+        <a href="#contact" class="hover:text-red-500 transition">Contact</a>
+      </nav>
+
+      <a href="https://wa.me/2347014702451?text=Hello%20Urban%20Pro%20Realty,%20I%20would%20like%20to%20make%20a%20property%20inquiry."
+         target="_blank"
+         class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-4 py-2.5 rounded-lg flex items-center gap-2 transition shadow">
+        <i class="fab fa-whatsapp text-base"></i> Chat Now
+      </a>
+    </div>
+  </header>
+
+  <section class="bg-neutral-950 text-white py-14 md:py-20 px-4 border-b border-neutral-800">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <span class="inline-block bg-red-600/20 border border-red-500/30 text-red-400 text-xs font-semibold px-3 py-1 rounded-full mb-4">
+          ...a real estate firm you can trust
+        </span>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+          Verified Homes & Land Across Lagos.
+        </h1>
+        <p class="text-neutral-300 text-base md:text-lg mb-8">
+          Explore vetted duplexes, serviced apartments, shortlets, and titled land in Surulere, Lekki, Ikeja, and Victoria Island.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#properties" class="bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg transition">
+            Browse Listings
+          </a>
+          <a href="#contact" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition">
+            Book an Inspection
+          </a>
+        </div>
+      </div>
+
+      <div class="hidden md:block">
+        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80"
+             alt="Modern Lagos Residence"
+             class="rounded-2xl shadow-2xl object-cover h-80 w-full border border-neutral-800" />
+      </div>
+    </div>
+  </section>
+
+  <section id="properties" class="max-w-6xl mx-auto px-4 pt-12 pb-16">
+    <div class="bg-white p-5 rounded-2xl shadow-sm border border-slate-200 mb-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="lg:col-span-2">
+          <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Location or Keyword</label>
+          <div class="relative">
+            <i class="fas fa-search absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+            <input id="filter-search" type="text" oninput="applyFilters()"
+                   placeholder="e.g. Lekki, Surulere, Duplex, Land..."
+                   class="w-full pl-9 pr-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-none focus:border-red-600" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Listing Type</label>
+          <select id="filter-type" onchange="applyFilters()"
+                  class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-red-600">
+            <option value="ALL">All Types</option>
+            <option value="For Sale">For Sale</option>
+            <option value="For Rent">For Rent</option>
+            <option value="Shortlet">Shortlet</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Bedrooms</label>
+          <select id="filter-beds" onchange="applyFilters()"
+                  class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-red-600">
+            <option value="ALL">Any Beds</option>
+            <option value="1">1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3">3 Bedrooms</option>
+            <option value="4+">4+ Bedrooms</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase mb-1">Max Budget</label>
+          <select id="filter-budget" onchange="applyFilters()"
+                  class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg bg-white focus:outline-none focus:border-red-600">
+            <option value="0">No Limit</option>
+            <option value="5000000">Up to ₦5,000,000</option>
+            <option value="50000000">Up to ₦50,000,000</option>
+            <option value="150000000">Up to ₦150,000,000</option>
+            <option value="300000000">Up to ₦300,000,000</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between mt-4 pt-3 border-t border-slate-100 text-xs">
+        <span id="results-count" class="font-semibold text-slate-600">Loading properties...</span>
+        <button onclick="resetFilters()" class="text-red-600 hover:text-red-700 font-semibold">
+          <i class="fas fa-rotate-left mr-1"></i> Reset Filters
+        </button>
+      </div>
+    </div>
+
+    <div id="listings-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+  </section>
+
+  <section id="about" class="bg-white border-y border-slate-200 py-16 px-4">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold text-slate-900 mb-3">Why Choose Urban Pro Realty</h3>
+        <p class="text-slate-600 leading-relaxed mb-4">
+          Urban Pro Realty (RC 1819695) is a registered Nigerian real estate brokerage committed to transparent, dispute-free property transactions. Every home and parcel of land in our catalogue undergoes strict title verification before listing.
+        </p>
+        <div class="grid sm:grid-cols-3 gap-4 mt-6">
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <p class="font-bold text-red-600 text-lg">100% Verified</p>
+            <p class="text-xs text-slate-500 mt-1">C of O & Governor's Consent vetted</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <p class="font-bold text-red-600 text-lg">Live Video Tours</p>
+            <p class="text-xs text-slate-500 mt-1">Built for local & diaspora buyers</p>
+          </div>
+          <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+            <p class="font-bold text-red-600 text-lg">Fast Documentation</p>
+            <p class="text-xs text-slate-500 mt-1">Deed of Assignment & Survey support</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="contact" class="bg-black text-white p-6 rounded-2xl flex flex-col justify-between border border-neutral-800">
+        <div>
+          <img src="assets/logo.svg" alt="Urban Pro Realty" class="h-20 mb-4 object-contain" />
+          <ul class="space-y-3 text-sm text-neutral-300">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-building text-red-500 mt-1"></i>
+              <span><strong>Urban Pro Realty</strong><br/>CAC Reg: RC 1819695</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-map-marker-alt text-red-500 mt-1"></i>
+              <span>34 Adeniran Ogunsanya Street, Surulere, Lagos</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-phone text-red-500"></i>
+              <span>+234 701 470 2451</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i class="fas fa-envelope text-red-500"></i>
+              <span>urbanprorealtyng@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+        <a href="https://wa.me/2347014702451?text=Hello,%20I%20would%20like%20to%20schedule%20a%20property%20inspection."
+           target="_blank"
+           class="mt-6 w-full bg-red-600 hover:bg-red-700 text-center text-white font-semibold py-3 rounded-lg transition">
+          Schedule Inspection on WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-neutral-400 text-xs py-8 px-4 border-t border-neutral-900">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p>© 2026 Urban Pro Realty (RC 1819695). All rights reserved. 34 Adeniran Ogunsanya Street, Surulere, Lagos.</p>
+      <div class="flex gap-4">
+        <a href="#about" class="hover:text-white">Privacy Policy</a>
+        <a href="#about" class="hover:text-white">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

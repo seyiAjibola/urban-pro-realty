@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 420" width="600" height="420">
+  <rect x="200" y="25" width="200" height="190" fill="none" stroke="#D62828" stroke-width="8"/>
+  <!-- Left Building -->
+  <polygon points="235,212 235,120 272,106 272,212" fill="#D62828"/>
+  <line x1="242" y1="132" x2="265" y2="124" stroke="#000000" stroke-width="4"/>
+  <line x1="242" y1="146" x2="265" y2="138" stroke="#000000" stroke-width="4"/>
+  <line x1="242" y1="160" x2="265" y2="152" stroke="#000000" stroke-width="4"/>
+  <line x1="242" y1="174" x2="265" y2="166" stroke="#000000" stroke-width="4"/>
+  <line x1="242" y1="188" x2="265" y2="180" stroke="#000000" stroke-width="4"/>
+  <!-- Center Building -->
+  <polygon points="280,212 280,62 316,78 316,212" fill="#D62828"/>
+  <!-- Right Building -->
+  <polygon points="324,212 324,90 362,106 362,212" fill="#D62828"/>
+  <!-- Brand Name -->
+  <text x="300" y="278" text-anchor="middle" fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="60" font-weight="bold" letter-spacing="2">URBANPRO</text>
+  <text x="300" y="314" text-anchor="middle" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" letter-spacing="14">REALTY</text>
+  <text x="300" y="346" text-anchor="middle" fill="#E5E5E5" font-family="Arial, Helvetica, sans-serif" font-size="18" font-style="italic">...a real estate firm you can trust</text>
+</svg>
